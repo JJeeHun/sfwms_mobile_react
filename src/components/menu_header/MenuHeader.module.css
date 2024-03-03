@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-size);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info span {
+    font-size: 1rem;
+    text-align: right;
+}
+
+.right-info {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.title {
+    text-align: left;
+}

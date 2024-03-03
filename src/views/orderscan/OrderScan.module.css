@@ -1,0 +1,14 @@
+.search-area {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.content-list {
+    /* max-height: 700px; */
+    overflow-y: auto;
+}
+
+.reset {
+    height: 100px;
+}
