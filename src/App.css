@@ -1,7 +1,94 @@
 .App {
-  max-width: 500px;
-  width: 100vw;
-  height: 100vh;
-  padding: .5rem;
-  box-sizing: border-box;
+    max-width: var(--container-size);
+    width: 100vw;
+    height: 100vh;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    height: calc(100% - var(--header-size));
+}
+
+.content-title {
+    background-color: var(--main-color);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    pointer-events: visible;
+    z-index: 1;
+}
+
+.grid {
+    border-top: 1px solid var(--light-gray-color);
+    overflow: auto;
+}
+.grid-header {
+    background-color: #bdbdbd;
+}
+
+.grid-header .grid-cell {
+    height: 2.5rem;
+}
+
+.grid-cell {
+    height: 2rem;
+}
+.grid-cell p {
+    padding: 0.6rem;
+}
+
+.selected {
+    background-color: var(--main-color);
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+}
+
+.btns button {
+    flex: 1;
+    height: 3rem;
+}
+
+/* 공통 label */
+.title-text {
+    text-align: right;
+    padding-right: 0.3rem;
+}
+
+.select-box {
+    position: relative;
+}
+.select-box::after {
+    content: ">";
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 7px;
 }

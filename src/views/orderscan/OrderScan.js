@@ -1,60 +1,87 @@
-import React from 'react'
-import css from './OrderScan.module.css'
-import SearchInput from '../../components/SearchInput'
-import Input from '../../components/Input'
-import Grid from '../../components/Grid';
+import React, { useState } from "react";
+import css from "./OrderScan.module.css";
+import SearchInput from "../../components/SearchInput";
+import Input from "../../components/Input";
+import Grid from "../../components/Grid";
+import OrderPlan from "../../popup/order_plan/OrderPlan";
 
 const width = 70;
+const config = [
+    { text: "item", column: "sku" },
+    {
+        text: "Item Name",
+        column: "skunm",
+        style: { flexBasis: "5rem" },
+        bodyStyle: { textAlign: "left" },
+    },
+    { text: "Qty", column: "qty" },
+    { text: "Scan", column: "scanqty" },
+    { text: "STAT", column: "stat" },
+];
+const data = [
+    { sku: "item1", skunm: "item Name1", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+    { sku: "item2", skunm: "item Name2", qty: 10, scanqty: 20, stat: 10 },
+];
 
 const OrderScan = () => {
-  const config = [
-    {text:'item',column:'sku'},
-    {text:'Item Name',column:'skunm' ,style: {flexBasis: '5rem', height: '3rem'} ,bodyStyle: {textAlign: 'left'}},
-    {text:'Qty',column:'qty'},
-    {text:'Scan',column:'scanqty'},
-    {text:'STAT',column:'stat'},
-  ];
+    const [isPopup, setIsPopup] = useState(false);
+    const [selectedData, setSelectedData] = useState(undefined);
 
-  const data = [
-    {sku: 'item1',skunm: 'item Name1', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-    {sku: 'item2',skunm: 'item Name2', qty:10, scanqty:20, stat: 10},
-  ]
-  return (
-    <div className="container">
-      <section className={css['search-area']}>
-        <SearchInput text={'Order No.'} labelStyle={{width}}/>
-        <Input text={'Ship to'} labelStyle={{width}}/>
-      </section>
+    return (
+        <div className="container">
+            {isPopup ? (
+                <OrderPlan
+                    onSelected={(data) => {
+                        setSelectedData(data);
+                    }}
+                    onClose={() => setIsPopup(false)}
+                />
+            ) : (
+                ""
+            )}
 
-      <div className="content-title">Order List</div>
-      <section className={css["content-list"]}>
-        <Grid data={data} config={config} />
-      </section>
+            <section className={css["search-area"]}>
+                <SearchInput
+                    text={"Order No."}
+                    labelStyle={{ width }}
+                    expandClick={() => setIsPopup(true)}
+                />
+                <Input text={"Ship to"} labelStyle={{ width }} />
+            </section>
 
-      <button className={css['reset']}>클리어</button>
-    </div>
-  )
-}
+            <div className="content-title">Order List</div>
+            <section className={css["content-list"]}>
+                <Grid data={data} config={config} style={{ height: "35rem" }} />
+            </section>
 
-export default OrderScan
+            <div className="btns">
+                <button onClick={() => console.log(selectedData)}>
+                    클리어
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default OrderScan;
