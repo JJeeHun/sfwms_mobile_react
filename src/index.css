@@ -149,6 +149,7 @@ textarea {
     padding: 0.6rem;
     border: 1px solid var(--light-gray-color);
     border-radius: 5px;
+    width: 100%;
 }
 
 input[type="date"],

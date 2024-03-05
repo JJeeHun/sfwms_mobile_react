@@ -45,17 +45,17 @@ const data = [
 ];
 
 const OrderScan = () => {
-    const [isPopup, setIsPopup] = useState(false);
+    const [isOrderNoPopup, setisOrderNoPopup] = useState(false);
     const [selectedData, setSelectedData] = useState(undefined);
 
     return (
         <div className="container">
-            {isPopup ? (
+            {isOrderNoPopup ? (
                 <OrderPlan
                     onSelected={(data) => {
                         setSelectedData(data);
                     }}
-                    onClose={() => setIsPopup(false)}
+                    onClose={() => setisOrderNoPopup(false)}
                 />
             ) : (
                 ""
@@ -65,7 +65,7 @@ const OrderScan = () => {
                 <SearchInput
                     text={"Order No."}
                     labelStyle={{ width }}
-                    expandClick={() => setIsPopup(true)}
+                    expandClick={() => setisOrderNoPopup(true)}
                 />
                 <Input text={"Ship to"} labelStyle={{ width }} />
             </section>

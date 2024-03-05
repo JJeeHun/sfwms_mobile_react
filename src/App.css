@@ -92,3 +92,14 @@
     top: calc(50% - 5px);
     right: 7px;
 }
+
+.col2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.col2 > div {
+    flex: 1;
+}

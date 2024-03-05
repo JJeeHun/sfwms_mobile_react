@@ -6,13 +6,14 @@ import MenuList from "./views/menulist/MenuList";
 import MoveLocation from "./views/move_location/MoveLocation";
 import MenuHeader from "./components/menu_header/MenuHeader";
 import OrderScan from "./views/orderscan/OrderScan";
+import PalletCheck from "./views/pallet_check/PalletCheck";
 
 function App() {
     const [isLogin, setLogin] = useState(false);
     const menus = [
         { title: "Move Location (Pallet)", path: "/move-location" },
         { title: "Order Scan (Pallet Replace)", path: "/order-scan" },
-        { title: "Pallet Check", path: "/" },
+        { title: "Pallet Check", path: "/pallet-check" },
         { title: "Order Check", path: "/" },
         { title: "Stock Check", path: "/" },
         { title: "Pallet + Pallet", path: "/" },
@@ -43,6 +44,10 @@ function App() {
                                 element={<MoveLocation />}
                             />
                             <Route path="/order-scan" element={<OrderScan />} />
+                            <Route
+                                path="/pallet-check"
+                                element={<PalletCheck />}
+                            />
                         </Routes>
                     </>
                 )}
